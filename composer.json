@@ -1,22 +1,32 @@
 {
-    "name": "mcpuishor/googlemaps",
-    "description": "Wrapper for Google Maps API",
-    "type": "project",
-    "require": {
-        "php": "^7.0",
-        "guzzlehttp/guzzle": "^6.0"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Robert Tudor",
-            "email": "marketing@robert-tudor.com"
-        }
-    ],
-    "autoload": {
-            "psr-4": {
-                "mcpuishor\\googlemaps\\": "src/"
-            }
-        },
-    "minimum-stability": "dev"
+	"name": "mcpuishor/googlemaps",
+	"description": "Wrapper for Google Maps API",
+	"type": "project",
+	"require": {
+		"php": "^7.0",
+		"guzzlehttp/guzzle": "^6.0"
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Robert Tudor",
+			"email": "marketing@robert-tudor.com"
+		}
+	],
+	"autoload": {
+			"psr-4": {
+				"mcpuishor\\googlemaps\\": "src/"
+			}
+		},
+	"minimum-stability": "dev",
+	"extra": {
+		"laravel": {
+			"providers": [
+				"mcpuishor\\googlemaps\\googlemapsServiceProvider"
+			],
+			"aliases": {
+				"googlemaps": "mcpuishor\\googlemaps\\googlemapsServiceProvider"
+			}
+		}
+	}
 }
