@@ -2,11 +2,13 @@
 
 namespace mcpuishor\googlemaps;
 
+use mcpuishor\googlemaps\GooglemapsConstants;
+
 class Distance extends DistanceMatrix {
 
-	public function distance($origin, $destination, $units = "metric")
+	public function distance($origin, $destination, $units = GooglemapsConstants::UNITS_METRIC)
 	{
-		$self = ($units == "metric") ? $this->setMetricUnits() : $this->setImperialUnits();
+		$self = $this->setUnits($units);
 		return $self->addOrigin($origin)
 			->addDestination($destination)
 			->execute();

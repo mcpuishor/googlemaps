@@ -3,11 +3,12 @@
 namespace mcpuishor\googlemaps;
 
 use GuzzleHttp\Client as HttpClient;
+use mcpuishor\googlemaps\GooglemapsConstants;
 
 abstract class GoogleAPI {
 
 	const  API_HOST 		= 'https://maps.googleapis.com/maps/api';
-	const  RESPONSE_FORMAT 	= 'json'; 
+	const  RESPONSE_FORMAT 	= GooglemapsConstants::JSON; 
 
 	protected $endpoint;
 
@@ -21,7 +22,6 @@ abstract class GoogleAPI {
 	protected $httpClient;
 
 	/**
-	 *
 	 * Response language. 
 	 *
 	 * @var string
@@ -78,15 +78,20 @@ abstract class GoogleAPI {
 		return $this; 
 	}
 
-	public function pushParameters(string $parameter, string $parameters) 
+	public function pushParameters(string $parameter, $value) 
 	{
 		$this->parameters[$parameter] = $this->parameters[$parameter] ?? array();
-		array_push($this->parameters[$parameter], $parameters);
+		array_push($this->parameters[$parameter], $value);
 
 		return $this; 
 	}
 
 	protected function getParameters() 
+	{
+		return $this->getRawParameters();
+	}
+
+	final public function getRawParameters() 
 	{
 		return $this->parameters;
 	}
@@ -119,6 +124,12 @@ abstract class GoogleAPI {
         }
         $this->rawResponse = json_decode($response->getBody()); 
 	}
+
+	public function setUnits(string $units)
+	{
+		$this->setParameters(["units" => $units]);
+		return $this; 
+	}	
 
 	public function execute()
 	{

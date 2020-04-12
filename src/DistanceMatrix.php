@@ -27,18 +27,6 @@ class DistanceMatrix extends GoogleAPI {
 		return $response;
 	}
 
-	public function setImperialUnits() 
-	{
-		$this->setParameters(["units" => "imperial"]);
-		return $this;
-	}
-
-	public function setMetricUnits()
-	{
-		$this->setParameters(["units" => "metric"]);
-		return $this;
-	}
-
 	public function addOrigin(string $address)
 	{
 		$this->pushParameters("origins", $address);
@@ -49,11 +37,6 @@ class DistanceMatrix extends GoogleAPI {
 	{
 		$this->pushParameters("destinations", $address);
 		return $this;
-	}
-
-	public function getRawParameters() 
-	{
-		return parent::getParameters();
 	}
 
 	protected function getParameters()
