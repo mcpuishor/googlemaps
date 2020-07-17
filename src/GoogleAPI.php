@@ -120,7 +120,7 @@ abstract class GoogleAPI {
 										);
 		if ($response->getStatusCode() !== 200) {
 			// error to be customized
-            throw Exception();
+            throw \Exception();
         }
         $this->rawResponse = json_decode($response->getBody()); 
 	}

@@ -15,9 +15,11 @@
 	],
 	"autoload": {
 			"psr-4": {
-				"mcpuishor\\googlemaps\\": "src/"
+				"mcpuishor\\googlemaps\\": "src/",
+            	"mcpuishor\\googlemaps\\tests\\": "tests/"
 			}
-		},
+		}
+    },
 	"minimum-stability": "dev",
 	"extra": {
 		"laravel": {
