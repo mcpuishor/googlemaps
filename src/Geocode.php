@@ -37,4 +37,9 @@ class Geocode extends GoogleAPI {
 	{
 		return $this->rawResponse->results[0]->place_id;
 	}
+
+	public function execute()
+	{
+		parent::execute();
+	}
 }

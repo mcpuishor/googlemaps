@@ -29,4 +29,10 @@ return [
      */
     'bounds' => '',
 
+    /*
+    * Activate the caching in the database of the results   
+     */
+
+    'cache' => true,
+
 ];

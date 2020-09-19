@@ -1,6 +1,6 @@
 {
 	"name": "mcpuishor/googlemaps",
-	"description": "Wrapper for Google Maps API",
+	"description": "Wrapper for Google Maps API for Laravel apps",
 	"type": "project",
 	"require": {
 		"php": "^7.0",
