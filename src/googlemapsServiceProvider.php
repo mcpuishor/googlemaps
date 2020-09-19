@@ -15,7 +15,7 @@ class googlemapsServiceProvider extends ServiceProvider {
         $this->app->bind('geocoder', function ($app) {
             $client = app(Client::class);
 
-            return (new Geocoder($client))
+            return (new Geocode($client))
                 ->setApiKey(config('googlemaps.key'))
                 ->setLanguage(config('googlemaps.language'))
                 ->setRegion(config('googlemaps.region'))
@@ -23,23 +23,19 @@ class googlemapsServiceProvider extends ServiceProvider {
                 ->setCountry(config('googlemaps.country'));
         });
 
-        $this->app->bind(Geocoder::class, 'geocoder');
+        $this->app->bind(Geocode::class, 'geocoder');
     }
 
     public function boot()
     {
-
-
         $this->publishes(
         	[
         		__DIR__ . '/../config/googlemaps.php' => config_path('googlemaps.php'),
-
         	], 'config'
         );
         $this->publishes(
             [
                 __DIR__ . '/../migrations/' => database_path('/migrations'),
-
             ], 'database'
         );
     }
