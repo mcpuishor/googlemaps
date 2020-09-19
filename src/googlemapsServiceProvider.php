@@ -3,6 +3,7 @@
 namespace mcpuishor\googlemaps;
 
 use Illuminate\Support\ServiceProvider;
+use GuzzleHttp\Client as HttpClient;
 
 class googlemapsServiceProvider extends ServiceProvider {
 
@@ -12,8 +13,8 @@ class googlemapsServiceProvider extends ServiceProvider {
 
         $this->app->register( googlemapsServiceProvider::class);
 
-        $this->app->bind('geocoder', function ($app) {
-            $client = app(Client::class);
+        $this->app->bind('geocode', function ($app) {
+            $client = app(HttpClient::class);
 
             return (new Geocode($client))
                 ->setApiKey(config('googlemaps.key'))
@@ -23,7 +24,7 @@ class googlemapsServiceProvider extends ServiceProvider {
                 ->setCountry(config('googlemaps.country'));
         });
 
-        $this->app->bind(Geocode::class, 'geocoder');
+        $this->app->bind(Geocode::class, 'geocode');
     }
 
     public function boot()
