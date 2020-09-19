@@ -3,7 +3,6 @@
 namespace mcpuishor\googlemaps;
 
 use Illuminate\Support\ServiceProvider;
-use mcpuishor\googlemaps\googlemapsServiceProvider;
 
 class googlemapsServiceProvider extends ServiceProvider {
 
