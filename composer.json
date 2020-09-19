@@ -15,8 +15,7 @@
 	],
 	"autoload": {
 			"psr-4": {
-				"mcpuishor\\googlemaps\\": "src/",
-            	"mcpuishor\\googlemaps\\tests\\": "tests/"
+				"mcpuishor\\googlemaps\\": "src/"
 			}
 		}
     },
